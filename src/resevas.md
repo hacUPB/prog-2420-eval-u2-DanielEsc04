@@ -25,6 +25,7 @@ Fila: Numero aleatorio de 1 a 29(Salida)
 
 ` ` `
 Inicio
+
     Leer Genero("Ingrese su genero: ")
     Definir Sr@: 0
     Si Genero = M:
@@ -62,5 +63,6 @@ Inicio
     Leer Asiento("Escriba que asiento desea(A:Ventanilla, C:Pasillo, B:Sin preferencia): ")
     Definir Fila = Numero aleatorio(1,29)
     Escribir("(Sr@) (Nombre) su vuelo tendrá un costo de $(Precio) el dia (Fecha_Dia) (Fecha_Num) en la silla (Fila)(Asiento))
+    
 Fin
 ` ` `

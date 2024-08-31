@@ -15,6 +15,7 @@ Orbitas: Cantidad de orbitas que ha realizado el satelite.(Salida)
 
 ` ` `
 Inicio
+
     Leer Altitud_Inicial("Altitud en km del satelite: ")
     Leer Altitud_Minima("Altitud minima en que el satelite puede sobrevivir el satelite: ")
     Leer Cd("Coeficiente de arrastre del satelite: ")
@@ -32,5 +33,6 @@ Inicio
         Escribir("Se ha perdido conexión con satelite")
     Si Altitud_Perdida < 0.1
         Escribir("Satelite estable")
+        
 Fin
 ` ` `
