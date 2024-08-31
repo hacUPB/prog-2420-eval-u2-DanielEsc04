@@ -1,17 +1,29 @@
 # Pseudocodigo reservas
 ## Analisis de variables
 Genero: El usuario selecciona M(masculino) o F(femenino).(Entrada)
+
 Sr@: Escribe Sr o Sra(Salida)
+
 Nombre: Nombre completo de usuario(Entrada)
+
 Origen: Ciudad de origen del pasajero.(Entrada)
+
 Destino: Ciudad destino del pasajero.(Entrada)
+
 Fecha_dia: Dia de la semana en que viaja el pasajero.(Entrada)
+
 Fecha_Num: Fecha en numeros del vuelo.(Entrada)
+
 Distancia: Calculo de distancia entre ciudades.(Salida)
+
 Precio: Precio segun dia y distancia del vuelo.(Salida)
+
 Asiento: Asiento deseado por pasajero.(Entrada)
+
 Fila: Numero aleatorio de 1 a 29(Salida)
 
+
+` ` `
 Inicio
     Leer Genero("Ingrese su genero: ")
     Definir Sr@: 0
@@ -51,3 +63,4 @@ Inicio
     Definir Fila = Numero aleatorio(1,29)
     Escribir("(Sr@) (Nombre) su vuelo tendrá un costo de $(Precio) el dia (Fecha_Dia) (Fecha_Num) en la silla (Fila)(Asiento))
 Fin
+` ` `
