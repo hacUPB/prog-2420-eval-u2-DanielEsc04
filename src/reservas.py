@@ -3,51 +3,78 @@ from random import randint
 def main():
     Distancia = 0 
     Precio = 0 
+    Verficar_Genero = True
     Nombre = input("Ingrese su nombre completo: ")
-    Genero = input ("Ingrese su genero (M) o (F)")
-    if Genero not in ["M", "F"]:
-        print("Genero no valido")
-    elif Genero == ("M"):
-        Genero = ("Sr")
-        print(f"{Genero} {Nombre} bienvenido a fast airlines.")
-    elif Genero == ("F"):
-        Genero = ("Sra")
-        print(f"{Genero} {Nombre} bienvenida a fast airlines.")
-    Origen = int(input("Ingrese la ciudad origen:\nMedellín(1)\nBogotá(2)\nCartagena(3)"))
-    if Origen not in range (1,3):
-        print ("Seleccione una ciudad correcta")
-    Destino = int(input("Ingrese la ciudad destino:\nMedellín(1)\nBogotá(2)\nCartagena(3)"))
-    if Destino not in range (1,3):
-        print ("Seleccione una ciudad correcta")
-    elif Origen == 1 and Destino == 2:
-        Distancia == 240
+    while Verficar_Genero == True:
+        Genero = (input ("Ingrese su genero (M) o (F)")).upper()
+        if Genero not in ["M", "F"]:
+            print("Genero no valido")
+        elif Genero == ("M"):
+            Genero = ("Sr")
+            print(f"{Genero} {Nombre} bienvenido a fast airlines.")
+            Verficar_Genero = False
+        elif Genero == ("F"):
+            Genero = ("Sra")
+            print(f"{Genero} {Nombre} bienvenida a fast airlines.")
+            Verficar_Genero = False 
+    Verficar_origen = True
+    while Verficar_origen == True:
+        Origen = int(input("Ingrese la ciudad origen:\nMedellín(1)\nBogotá(2)\nCartagena(3)"))
+        if Origen not in [1, 2, 3]:
+            print ("Seleccione una ciudad correcta")
+        else:
+            Verficar_origen = False
+    Verficar_destino = True
+    while Verficar_destino == True:
+        Destino = int(input("Ingrese la ciudad destino:\nMedellín(1)\nBogotá(2)\nCartagena(3)"))
+        if Destino not in [1, 2, 3]:
+            print ("Seleccione una ciudad correcta")
+        else:
+            Verficar_destino = False
+    if Origen == 1 and Destino == 2:
+        Distancia = 240
     elif Origen == 2 and Destino == 1:
-        Distancia == 240
+        Distancia = 240
     elif Origen == 1 and Destino == 3:
-        Distancia == 461
+        Distancia = 461
     elif Origen == 3 and Destino == 1:
-        Distancia == 461
+        Distancia = 461
     elif Origen == 2 and Destino == 3:
-        Distancia == 657
+        Distancia = 657
     elif Origen == 3 and Destino == 2:
-        Distancia == 657
+        Distancia = 657
     else:
         print("Viaje no disponible")
-
-    Fecha_Dia = int(input("Ingrese el dia de la semana que viajará: \nLunes(1)\nMartes(2)\nMiercoles(3)\nJueves(4)\nViernes(5)\nSabado o Domingo(6)"))
-    Fecha_Num = int(input("Ingrese la fecha del mes que viajará"))
-    Fecha_Mes = input("En que mes viajará?")
-    if Fecha_Dia <= 4 and Distancia < 400:
-        Precio = 79900
-    elif Fecha_Dia <= 4 and Distancia > 400:
-        Precio = 156900
-    elif Fecha_Dia > 4 and Distancia < 400:
-        Precio = 119900
-    elif Fecha_Dia > 4 and Distancia > 400:
-        Precio = 213000
-    Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla\nB: Sin preferencia\nC: Pasillo")
-    Fila = randint(1,29)
-    print(f"{Genero} {Nombre} su vuelo será el {Fecha_Num} de {Fecha_Mes} su silla será {Fila}{Asiento}, tendrá un valor de ${Precio}")
+        Verficar_origen = True
+        Verficar_destino = True
+    Verificar_fecha = True
+    while Verificar_fecha == True:
+        Fecha_Dia = int(input("Ingrese el dia de la semana que viajará: \nLunes(1)\nMartes(2)\nMiercoles(3)\nJueves(4)\nViernes(5)\nSabado o Domingo(6)"))
+        Fecha_Mes = input("En que mes viajará?")
+        Fecha_Num = int(input("Ingrese el numero del dia del mes"))
+        if Fecha_Dia <= 4 and Distancia < 400:
+            Precio = 79900
+            Verificar_fecha = False
+        elif Fecha_Dia <= 4 and Distancia > 400:
+            Precio = 156900
+            Verificar_fecha = False
+        elif Fecha_Dia > 4 and Distancia < 400:
+            Precio = 119900
+            Verificar_fecha = False
+        elif Fecha_Dia > 4 and Distancia > 400:
+            Precio = 213000
+            Verificar_fecha = False
+        else:
+            print("Ingrese una fecha adecuada.")
+    Verificar_silla = True
+    while Verificar_silla == True:
+        Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla\nB: Sin preferencia\nC: Pasillo").upper()
+        if Asiento not in ["A", "B", "C"]:
+            print("Ingrese un asiento adecuado.")
+        else:
+            Fila = randint(1,29)
+            Verificar_silla = False
+    print(f"{Genero} {Nombre} su vuelo será el {Fecha_Num} del mes {Fecha_Mes} su silla será {Fila}{Asiento}, tendrá un valor de ${Precio}")
 
     pass
 
