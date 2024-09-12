@@ -1,5 +1,6 @@
 import random
 from random import randint
+import datetime
 def main():
     Distancia = 0 
     Precio = 0 
@@ -48,10 +49,14 @@ def main():
         Verficar_origen = True
         Verficar_destino = True
     Verificar_fecha = True
+    print("Fecha del vuelo")
     while Verificar_fecha == True:
-        Fecha_Dia = int(input("Ingrese el dia de la semana que viajará: \nLunes(1)\nMartes(2)\nMiercoles(3)\nJueves(4)\nViernes(5)\nSabado o Domingo(6)"))
-        Fecha_Mes = input("En que mes viajará?")
-        Fecha_Num = int(input("Ingrese el numero del dia del mes"))
+        Dia = int(input("Ingrese el dia que viajará"))
+        Fecha_Mes = int(input("En que mes viajará?"))
+        Año = int(input("Año en que viajará"))
+        date = datetime.date(Año, Fecha_Mes, Dia)
+        Fecha_Dia = date.isoweekday()
+
         if Fecha_Dia <= 4 and Distancia < 400:
             Precio = 79900
             Verificar_fecha = False
@@ -74,7 +79,7 @@ def main():
         else:
             Fila = randint(1,29)
             Verificar_silla = False
-    print(f"{Genero} {Nombre} su vuelo será el {Fecha_Num} del mes {Fecha_Mes} su silla será {Fila}{Asiento}, tendrá un valor de ${Precio}")
+    print(f"{Genero} {Nombre} su vuelo será el {date} su silla será {Fila}{Asiento}, tendrá un valor de ${Precio}")
 
     pass
 
