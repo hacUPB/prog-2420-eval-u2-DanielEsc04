@@ -1,4 +1,3 @@
-import random
 from random import randint
 import datetime
 def main():
@@ -20,57 +19,66 @@ def main():
             Verficar_Genero = False 
     Verficar_origen = True
     while Verficar_origen == True:
-        Origen = int(input("Ingrese la ciudad origen:\nMedellín(1)\nBogotá(2)\nCartagena(3)"))
-        if Origen not in [1, 2, 3]:
+        Origen = input("Ingrese la ciudad origen:\nMedellín(1)\nBogotá(2)\nCartagena(3)")
+        if Origen not in ["1", "2", "3"]:
             print ("Seleccione una ciudad correcta")
         else:
+            Origen = int(Origen)
             Verficar_origen = False
     Verficar_destino = True
     while Verficar_destino == True:
-        Destino = int(input("Ingrese la ciudad destino:\nMedellín(1)\nBogotá(2)\nCartagena(3)"))
-        if Destino not in [1, 2, 3]:
+        Destino = input("Ingrese la ciudad destino:\nMedellín(1)\nBogotá(2)\nCartagena(3)")
+        if Destino not in ["1", "2", "3"]:
             print ("Seleccione una ciudad correcta")
         else:
+            Destino = int(Destino)
             Verficar_destino = False
-    if Origen == 1 and Destino == 2:
-        Distancia = 240
-    elif Origen == 2 and Destino == 1:
-        Distancia = 240
-    elif Origen == 1 and Destino == 3:
-        Distancia = 461
-    elif Origen == 3 and Destino == 1:
-        Distancia = 461
-    elif Origen == 2 and Destino == 3:
-        Distancia = 657
-    elif Origen == 3 and Destino == 2:
-        Distancia = 657
-    else:
-        print("Viaje no disponible")
-        Verficar_origen = True
-        Verficar_destino = True
+
+        if Origen == 1 and Destino == 2:
+            Distancia = 240
+        elif Origen == 2 and Destino == 1:
+            Distancia = 240
+        elif Origen == 1 and Destino == 3:
+            Distancia = 461
+        elif Origen == 3 and Destino == 1:
+            Distancia = 461
+        elif Origen == 2 and Destino == 3:
+            Distancia = 657
+        elif Origen == 3 and Destino == 2:
+            Distancia = 657
+        else:
+            print("Viaje no disponible")
+            Verficar_origen = True
+            Verficar_destino = True
+            
     Verificar_fecha = True
     print("Fecha del vuelo")
     while Verificar_fecha == True:
-        Dia = int(input("Ingrese el dia que viajará"))
+        Dia = int(input("Ingrese el dia que viajará"))            
         Fecha_Mes = int(input("En que mes viajará?"))
         Año = int(input("Año en que viajará"))
         date = datetime.date(Año, Fecha_Mes, Dia)
         Fecha_Dia = date.isoweekday()
-
-        if Fecha_Dia <= 4 and Distancia < 400:
-            Precio = 79900
-            Verificar_fecha = False
-        elif Fecha_Dia <= 4 and Distancia > 400:
-            Precio = 156900
-            Verificar_fecha = False
-        elif Fecha_Dia > 4 and Distancia < 400:
-            Precio = 119900
-            Verificar_fecha = False
-        elif Fecha_Dia > 4 and Distancia > 400:
-            Precio = 213000
-            Verificar_fecha = False
+        Fecha_actual = datetime.now().date()
+        if date <= Fecha_actual:
+            "No se puede ingresar una fecha pasada"
         else:
-            print("Ingrese una fecha adecuada.")
+            Verificar_fecha = False
+
+    if Fecha_Dia <= 3 and Distancia < 400:
+        Precio = 79900
+        Verificar_fecha = False
+    elif Fecha_Dia <= 3 and Distancia > 400:
+        Precio = 156900
+        Verificar_fecha = False
+    elif Fecha_Dia > 3 and Distancia < 400:
+        Precio = 119900
+        Verificar_fecha = False
+    elif Fecha_Dia > 3 and Distancia > 400:
+        Precio = 213000
+        Verificar_fecha = False
+    else:
+        print("Ingrese una fecha adecuada.")
     Verificar_silla = True
     while Verificar_silla == True:
         Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla \nB: Sin preferencia \nC: Pasillo ").upper()
