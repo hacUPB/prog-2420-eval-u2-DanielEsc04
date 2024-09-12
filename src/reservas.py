@@ -73,7 +73,7 @@ def main():
             print("Ingrese una fecha adecuada.")
     Verificar_silla = True
     while Verificar_silla == True:
-        Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla\nB: Sin preferencia\nC: Pasillo").upper()
+        Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla \nB: Sin preferencia \nC: Pasillo ").upper()
         if Asiento not in ["A", "B", "C"]:
             print("Ingrese un asiento adecuado.")
         else:
