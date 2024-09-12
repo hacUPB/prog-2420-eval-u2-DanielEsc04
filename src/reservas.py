@@ -61,25 +61,19 @@ def main():
         Fecha_Dia = date.isoweekday()
         Fecha_actual = datetime.now().date()
         if date <= Fecha_actual:
-            "No se puede ingresar una fecha pasada"
+            print("No se puede ingresar una fecha pasada")
         else:
             Verificar_fecha = False
 
     if Fecha_Dia <= 3 and Distancia < 400:
         Precio = 79900
-        Verificar_fecha = False
     elif Fecha_Dia <= 3 and Distancia > 400:
         Precio = 156900
-        Verificar_fecha = False
     elif Fecha_Dia > 3 and Distancia < 400:
         Precio = 119900
-        Verificar_fecha = False
     elif Fecha_Dia > 3 and Distancia > 400:
         Precio = 213000
-        Verificar_fecha = False
-    else:
-        print("Ingrese una fecha adecuada.")
-    Verificar_silla = True
+
     while Verificar_silla == True:
         Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla \nB: Sin preferencia \nC: Pasillo ").upper()
         if Asiento not in ["A", "B", "C"]:
