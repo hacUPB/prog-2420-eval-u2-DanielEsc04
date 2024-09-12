@@ -59,9 +59,11 @@ def main():
         Año = int(input("Año en que viajará"))
         date = datetime.date(Año, Fecha_Mes, Dia)
         Fecha_Dia = date.isoweekday()
-        Fecha_actual = datetime.now().date()
-        if date <= Fecha_actual:
-            print("No se puede ingresar una fecha pasada")
+        Fecha_actual = datetime.datetime.now().date()
+        if date < Fecha_actual:
+            print("No se puede ingresar una fecha pasada,escoja otra fecha.")
+        elif date == Fecha_actual:
+            print("No hay vuelos disponibles para hoy, escoja otra fecha.")
         else:
             Verificar_fecha = False
 
@@ -74,6 +76,7 @@ def main():
     elif Fecha_Dia > 3 and Distancia > 400:
         Precio = 213000
 
+    Verificar_silla = True
     while Verificar_silla == True:
         Asiento = input("Ingrese el asiento que desee: \nA: Ventanilla \nB: Sin preferencia \nC: Pasillo ").upper()
         if Asiento not in ["A", "B", "C"]:
