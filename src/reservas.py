@@ -79,7 +79,7 @@ def main():
         else:
             Fila = randint(1,29)
             Verificar_silla = False
-    print(f"{Genero} {Nombre} su vuelo será el {date} su silla será {Fila}{Asiento}, tendrá un valor de ${Precio}")
+    print(f"{Genero} {Nombre} su vuelo será el {date}, su silla será {Fila}{Asiento}, tendrá un valor de ${Precio}")
 
     pass
 
